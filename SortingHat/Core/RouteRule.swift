@@ -8,6 +8,7 @@
 import Foundation
 
 public struct RouteRule<T: URLRoutable>: RouteRuleType {
+    public init() {}
     public var urlPattern: String {
         return T.urlPattern
     }

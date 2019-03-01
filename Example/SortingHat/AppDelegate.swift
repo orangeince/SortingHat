@@ -17,8 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        SortingHat.register(DetailViewController.self)
-        SortingHat.register(ListViewController.self)
+//        SortingHat.register(DetailViewController.self)
+//        SortingHat.register(ListViewController.self)
+        SortingHat.register(ruleCollection: ModuleCenter.Demo.self)
         return true
     }
 
