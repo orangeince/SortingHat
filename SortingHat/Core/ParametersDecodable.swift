@@ -7,7 +7,11 @@
 
 import Foundation
 
-public protocol ParametersDecodable: Decodable {
+public protocol RouteParametersType {
+    init?(params: [String: Any])
+}
+
+public protocol ParametersDecodable: RouteParametersType, Decodable {
     init?(params: [String: Any])
 }
 
