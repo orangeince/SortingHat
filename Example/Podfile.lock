@@ -1,0 +1,16 @@
+PODS:
+  - SortingHat (0.1.0)
+
+DEPENDENCIES:
+  - SortingHat (from `../`)
+
+EXTERNAL SOURCES:
+  SortingHat:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SortingHat: 0ce7278d7998f5778e74d9133bf8fb4ffff9f987
+
+PODFILE CHECKSUM: 694f8409d8a67f31ff50822b808dacdc07bac26d
+
+COCOAPODS: 1.6.0.beta.2

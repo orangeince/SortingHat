@@ -41,10 +41,10 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		6709B1735180A4F6D8F2388A /* Pods_SortingHat_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SortingHat_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7F183CEF2C5CFC1055A391B3 /* SortingHat.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = SortingHat.podspec; path = ../SortingHat.podspec; sourceTree = "<group>"; };
-		808B863687B01AA34935D28B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		7F183CEF2C5CFC1055A391B3 /* SortingHat.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SortingHat.podspec; path = ../SortingHat.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		808B863687B01AA34935D28B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		B901257145F2DBB6CAC5B84E /* Pods_SortingHat_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SortingHat_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BF3504F0E250451D86E50690 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		BF3504F0E250451D86E50690 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		D995F1F25EBEF066C855C6FE /* Pods-SortingHat_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SortingHat_Tests.release.xcconfig"; path = "Target Support Files/Pods-SortingHat_Tests/Pods-SortingHat_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		F60AFB94F5F117CFA5070EFB /* Pods-SortingHat_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SortingHat_Example.debug.xcconfig"; path = "Target Support Files/Pods-SortingHat_Example/Pods-SortingHat_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,7 +156,6 @@
 				17D9B5AEEF93C9723244B27D /* Pods-SortingHat_Tests.debug.xcconfig */,
 				D995F1F25EBEF066C855C6FE /* Pods-SortingHat_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -483,6 +482,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SortingHat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
@@ -498,6 +498,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SortingHat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
