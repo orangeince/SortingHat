@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+public protocol RouteTargetType {
+    var rule: RouteRuleType? { get }
+    var parameters: [String: Any] { get }
+}
