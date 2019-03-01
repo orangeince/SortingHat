@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 public enum SortingHat {
     static let urlMap = URLRouteMap.shared
@@ -28,6 +29,9 @@ public enum SortingHat {
         for rule in ruleCollection.rules {
             urlMap.register(rule: rule)
         }
+    }
+    public static func register<T: URLRoutable>(_ node: T.Type) {
+        urlMap.register(rule: RouteRule<T>())
     }
     
     public static func show(targetUrl: URL, from: UIViewController? = nil) {
