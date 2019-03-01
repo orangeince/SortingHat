@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SortingHat_Example' do
+  pod 'SortingHat', :path => '../'
+
+  target 'SortingHat_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
