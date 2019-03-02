@@ -10,15 +10,17 @@ import Foundation
 class URLRouteMap {
     static let shared = URLRouteMap()
     
-    var tire: [String: RouteRuleType] = [:]
+    var tire: [String: RouteNodeType] = [:]
     
-    func register(rule: RouteRuleType) {
-        tire[rule.urlPattern] = rule
+    func register<T>(_ node: RouteNode<T>) {
+        for url in node.urlPatterns {
+            tire[url] = node
+        }
     }
     
-    func searchRule(for url: URL) -> RouteRuleType? {
+    func searchNode(for url: URL) -> RouteNodeType? {
         let path = String(url.absoluteString.prefix(10))
-        guard let rule = tire[path] else { return nil }
-        return rule
+        guard let node = tire[path] else { return nil }
+        return node
     }
 }

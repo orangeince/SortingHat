@@ -53,7 +53,7 @@ public protocol URLRoutable: Routable where Paramters: ParametersDecodable {
 ///    }
 ///  }
 ///  ```
-protocol MultiportURLRoutable: Routable {
+public protocol MultiportURLRoutable: Routable {
     static var urlPatterns: [String] { get }
 }
 

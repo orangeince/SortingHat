@@ -12,8 +12,7 @@ public enum SortingHat {
     static let urlMap = URLRouteMap.shared
     
     public static func viewController(for target: RouteTargetType) -> UIViewController? {
-        guard let rule = target.rule else { return nil }
-        return rule.contruct(with: target.parameters)
+        return target.node.constructViewController(target.parameters)
     }
     
     public static func show(target: RouteTargetType, from: UIViewController? = nil) {
@@ -25,18 +24,19 @@ public enum SortingHat {
         }
     }
     
-    public static func register(ruleCollection: RouteRuleCollection.Type) {
-        for rule in ruleCollection.rules {
-            urlMap.register(rule: rule)
-        }
+    public static func register<T>(node: RouteNode<T>) {
+        urlMap.register(node)
     }
-    public static func register<T: URLRoutable>(_ node: T.Type) {
-        urlMap.register(rule: RouteRule<T>())
+    
+    public static func register<T>(nodes: [RouteNode<T>]) {
+        for node in nodes {
+            urlMap.register(node)
+        }
     }
     
     public static func show(targetUrl: URL, from: UIViewController? = nil) {
-        guard let rule = urlMap.searchRule(for: targetUrl),
-            let viewController = rule.contruct(with: targetUrl.queryItems) else { return }
+        guard let node = urlMap.searchNode(for: targetUrl),
+            let viewController = node.constructViewController(targetUrl.queryItems) else { return }
         if let from = from  {
             from.navigationController?.pushViewController(viewController, animated: true)
         } else {

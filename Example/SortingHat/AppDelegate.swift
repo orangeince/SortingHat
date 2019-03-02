@@ -19,7 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 //        SortingHat.register(DetailViewController.self)
 //        SortingHat.register(ListViewController.self)
-        SortingHat.register(ruleCollection: ModuleCenter.Demo.self)
+        SortingHat.register(node: RouteNode<DetailViewController>())
+        SortingHat.register(node: RouteNode<ListViewController>())
         return true
     }
 

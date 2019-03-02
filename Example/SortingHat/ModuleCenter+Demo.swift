@@ -17,24 +17,15 @@ extension ModuleCenter {
 }
 
 extension ModuleCenter.Demo: RouteTargetType {
-    var rule: RouteRuleType? {
+    var node: RouteNodeType {
         switch self {
-        case .detail: return RouteRule<DetailViewController>()
-        case .list: return RouteRule<ListViewController>()
+        case .detail: return RouteNode<DetailViewController>()
+        case .list: return RouteNode<ListViewController>()
         }
     }
     
     var parameters: [String : Any] {
         return ParametersParser.parse(enumType: self)
-    }
-}
-
-extension ModuleCenter.Demo: RouteRuleCollection {
-    static var rules: [RouteRuleType] {
-        return [
-            RouteRule<DetailViewController>(),
-            RouteRule<ListViewController>()
-        ]
     }
 }
 
@@ -52,17 +43,31 @@ extension DetailViewController: URLRoutable {
     }
 }
 
-extension ListViewController: URLRoutable {
-    static var urlPattern: String {
-        return "x://list//"
+extension ListViewController: MultiportURLRoutable {
+    static var urlPatterns: [String] {
+        return ["x://list1/", "x://list2/"]
     }
-    struct Paramters: ParametersDecodable {
-        let title: String
-        let id: String
+    enum Paramters: RouteParametersType {
+        case list1(title: String)
+        case list2(title: String)
+        
+        init?(params: [String : Any]) {
+            guard let title = params["title"] as? String else { return nil }
+            if title.contains("list1") {
+                self = .list1(title: "LIST1")
+            } else {
+                self = .list2(title: title)
+            }
+        }
     }
-    static func constructViewController(params: ListViewController.Paramters) -> UIViewController? {
+    static func constructViewController(params: Paramters) -> UIViewController? {
         let vc = ListViewController()
-        vc.title = params.title
+        switch params {
+        case .list1(let title):
+            vc.title = title
+        case .list2(let title):
+            vc.title = title
+        }
         return vc
     }
 }

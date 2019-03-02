@@ -8,6 +8,6 @@
 import Foundation
 
 public protocol RouteTargetType {
-    var rule: RouteRuleType? { get }
+    var node: RouteNodeType { get }
     var parameters: [String: Any] { get }
 }
