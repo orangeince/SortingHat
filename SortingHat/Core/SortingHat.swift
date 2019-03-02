@@ -35,9 +35,10 @@ public enum SortingHat {
     }
     
     public static func show(targetUrl: URL, from: UIViewController? = nil) {
-        guard let node = urlMap.searchNode(for: targetUrl),
-            let viewController = node.constructViewController(targetUrl.queryItems) else { return }
-        if let from = from  {
+        guard let (node, matchedParams) = urlMap.matchNode(for: targetUrl),
+            let viewController = node.constructViewController(targetUrl.queryItems.weakMerging(matchedParams))
+            else { return }
+        if let from = from {
             from.navigationController?.pushViewController(viewController, animated: true)
         } else {
             UIApplication.shared.keyWindow?.rootViewController = UINavigationController(rootViewController:  viewController)

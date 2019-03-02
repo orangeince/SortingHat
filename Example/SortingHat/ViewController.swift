@@ -38,9 +38,9 @@ class ViewController: UITableViewController {
         case 0:
             SortingHat.show(target: ModuleCenter.Demo.detail(title: "Sorting.detail"), from: self)
         case 1:
-            SortingHat.show(targetUrl: URL(string: "x://list1/?title=SortingHat.list1&id=10")!, from: self)
+            SortingHat.show(targetUrl: URL(string: "x://list/SortingHat.list1")!, from: self)
         case 2:
-            SortingHat.show(targetUrl: URL(string: "x://list2/?title=SortingHat.list2&id=10")!, from: self)
+            SortingHat.show(targetUrl: URL(string: "x://list/SortingHat.list2/100")!, from: self)
         default:
             break
         }

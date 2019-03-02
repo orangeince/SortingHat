@@ -10,17 +10,20 @@ import Foundation
 class URLRouteMap {
     static let shared = URLRouteMap()
     
-    var tire: [String: RouteNodeType] = [:]
+    private(set) var trie = URLTrie<RouteNodeType>()
     
     func register<T>(_ node: RouteNode<T>) {
         for url in node.urlPatterns {
-            tire[url] = node
+            trie.inserting(element: node, paths: URL(string: url)!.pathComponents.slice)
         }
     }
     
-    func searchNode(for url: URL) -> RouteNodeType? {
-        let path = String(url.absoluteString.prefix(10))
-        guard let node = tire[path] else { return nil }
-        return node
+    func matchNode(for url: URL) -> (RouteNodeType, [String: Any])? {
+        guard let result = trie.fetch(paths: url.completePaths.slice),
+            let element = result.subTrie.element else { return nil }
+        return (element, result.paramsters)
     }
 }
+
+
+

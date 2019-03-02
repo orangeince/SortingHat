@@ -31,7 +31,7 @@ extension ModuleCenter.Demo: RouteTargetType {
 
 extension DetailViewController: URLRoutable {
     static var urlPattern: String {
-        return "x://detail"
+        return "x://detail/:title"
     }
     struct Paramters: ParametersDecodable {
         let title: String
@@ -45,18 +45,18 @@ extension DetailViewController: URLRoutable {
 
 extension ListViewController: MultiportURLRoutable {
     static var urlPatterns: [String] {
-        return ["x://list1/", "x://list2/"]
+        return ["x://list/:title/:id", "x://list/:title",]
     }
     enum Paramters: RouteParametersType {
         case list1(title: String)
-        case list2(title: String)
+        case list2(title: String, id: String)
         
         init?(params: [String : Any]) {
             guard let title = params["title"] as? String else { return nil }
-            if title.contains("list1") {
-                self = .list1(title: "LIST1")
+            if let id = params["id"] as? String {
+                self = .list2(title: title, id: id)
             } else {
-                self = .list2(title: title)
+                self = .list1(title: "LIST1")
             }
         }
     }
@@ -65,8 +65,8 @@ extension ListViewController: MultiportURLRoutable {
         switch params {
         case .list1(let title):
             vc.title = title
-        case .list2(let title):
-            vc.title = title
+        case .list2(let title, let id):
+            vc.title = title + "-" + id
         }
         return vc
     }
