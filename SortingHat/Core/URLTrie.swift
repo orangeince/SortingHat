@@ -71,4 +71,14 @@ extension URLTrie {
         }
         return result
     }
+    
+    mutating func register(element: Element, with url: URL) {
+        inserting(element: element, paths: url.completePaths.slice)
+    }
+    
+    func parse(url: URL) -> (Element, [String: Any])? {
+        guard let result = fetch(paths: url.completePaths.slice),
+            let element = result.subTrie.element else { return nil }
+        return (element, result.paramsters)
+    }
 }
