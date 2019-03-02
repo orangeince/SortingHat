@@ -28,7 +28,7 @@ extension DetailViewController: URLRoutable {
     }
 }
 ```
-2. 自动在`模块中枢`增开路由模块，以下代码都是自动生成的
+2. 自动在`模块中枢`增开路由模块，以下代码可配合`Sourcery`自动生成的
 ```swift
 extension ModuleCenter {
     enum Demo {
@@ -36,11 +36,11 @@ extension ModuleCenter {
         case list(title: String, id: String)
     }
 }
-extension ModuleCenter.Demo: RouteTargetType {
-    var rule: RouteRuleType? {
+extension ModuleCenter.Demo: RouteNodeType {
+    var node: RouteNodeType {
         switch self {
-        case .detail: return RouteRule<DetailViewController>()
-        case .list: return RouteRule<ListViewController>()
+        case .detail: return RouteNode<DetailViewController>()
+        case .list: return RouteNode<ListViewController>()
         }
     }
 }
