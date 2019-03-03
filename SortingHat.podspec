@@ -1,43 +1,22 @@
-#
-# Be sure to run `pod lib lint SortingHat.podspec' to ensure this is a
-# valid spec before submitting.
-#
-# Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see https://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
   s.name             = 'SortingHat'
-  s.version          = '0.1.0'
-  s.summary          = 'A lightweight library for App routing.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
+  s.version          = '0.2.0'
+  s.summary          = 'A lightweight and pure swift library for router.'
 
   s.description      = <<-DESC
-  SortingHat is a powerful library for App routing.
-  It support not only URL routing, but also internal invoke between modules.
+    SortingHat is a powerful and pure swift library for router.
+    It support not only URL routing, but also internal invoke between modules.
                        DESC
 
-  s.homepage         = 'https://github.com/Shao/SortingHat'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.homepage         = 'https://github.com/orangeince/SortingHat'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Shao' => 'orangeince@outlook.com' }
-  s.source           = { :git => 'https://github.com/Shao/SortingHat.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => 'https://github.com/orangeince/SortingHat.git', :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/xiaoyipie'
 
+  s.swift_version = '4.2'
   s.ios.deployment_target = '10.0'
 
   s.source_files = 'SortingHat/**/*'
   
-  # s.resource_bundles = {
-  #   'SortingHat' => ['SortingHat/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end
