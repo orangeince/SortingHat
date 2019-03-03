@@ -78,7 +78,9 @@ SortingHat.handle(url: "x://handler/storyTarget/commentAction?content=Hello,Sort
 
 ## Installation
 
-Wait please. I'll release this library as soon as posible. >_<
+```ruby
+pod 'SortingHat', '~> 0.2'
+```
 
 ## License
 
