@@ -28,7 +28,20 @@ extension DetailViewController: URLRoutable {
     }
 }
 ```
-2. 自动在`模块中枢`增开路由模块，以下代码可配合`Sourcery`自动生成的
+2. 路由注册
+```swift
+// 注册ViewController节点
+SortingHat.register(node: RouteNode<DetailViewController>())
+
+// 注册Handler节点
+SortingHat.register(url: "x://handler/:target/:action") { (params) -> String? in
+    guard let target = params["target"] as? String,
+        let action = params["action"] as? String
+        else { return nil }
+    return "target: \(target)\naction: \(action)"
+}
+```
+3. 自动在`模块中枢`增开路由模块，以下代码可配合`Sourcery`自动生成的
 ```swift
 extension ModuleCenter {
     enum Demo {
@@ -45,18 +58,17 @@ extension ModuleCenter.Demo: RouteNodeType {
     }
 }
 ```
-3. 业务场景使用
+4. 业务场景使用
 ```swift
 // URL调用方式
-SortingHat.show(targetUrl: URL(string: "x://detail?title=SortingHat.detail")!, from: self)
+SortingHat.show(targetUrl: "x://detail?title=SortingHat.detail", from: self)
 
 // 内部Target调用方式
 SortingHat.show(target: ModuleCenter.Demo.list(title: "SortingHat.list", id: "BJ2019"), from: self)
 ```
 
 ## RoadMap
-- `MutiportURLRoutable`: Multiple URL bind to one viewcontroller.
-- Register closure to URL.
+- Register URLs at module load point.
 - Callback for viewcontroller.
 - Auto generate extension code for submodule.
 
