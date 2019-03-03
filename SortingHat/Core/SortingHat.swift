@@ -52,7 +52,7 @@ public enum SortingHat {
             let (handler, params) = urlMap.matchHandler(for: url) else {
             return nil
         }
-        return handler(params)
+        return handler(params.weakMerging(url.queryItems))
     }
     
     public static func show(targetUrl: URLConvertible, from: UIViewController? = nil) {
