@@ -14,7 +14,7 @@ class URLRouteMap {
     
     func register<T>(_ node: RouteNode<T>) {
         for url in node.urlPatterns {
-            routerTrie.inserting(element: node, paths: URL(string: url)!.completePaths.slice)
+            routerTrie.insert(element: node, paths: URL(string: url)!.completePaths.slice)
         }
     }
     

@@ -11,12 +11,12 @@ struct URLTrie<Element> {
     var element: Element?
     var children: [String: URLTrie<Element>]
 
-    mutating func inserting(element: Element, paths: ArraySlice<String>) {
+    mutating func insert(element: Element, paths: ArraySlice<String>) {
         guard let (head, tail) = paths.decomposed else {
             return self.element = element
         }
         if children[head] != nil {
-            children[head]?.inserting(element: element, paths: tail)
+            children[head]?.insert(element: element, paths: tail)
         } else {
             children[head] = URLTrie(element: element, paths: tail)
         }
@@ -73,7 +73,7 @@ extension URLTrie {
     }
     
     mutating func register(element: Element, with url: URL) {
-        inserting(element: element, paths: url.completePaths.slice)
+        insert(element: element, paths: url.completePaths.slice)
     }
     
     func parse(url: URL) -> (Element, [String: Any])? {
