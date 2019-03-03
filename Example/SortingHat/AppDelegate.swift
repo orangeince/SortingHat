@@ -21,6 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        SortingHat.register(ListViewController.self)
         SortingHat.register(node: RouteNode<DetailViewController>())
         SortingHat.register(node: RouteNode<ListViewController>())
+        SortingHat.register(url: URL(string: "x://handler/:target/:action")!) { (params) -> String? in
+            guard let target = params["target"] as? String,
+                let action = params["action"] as? String
+                else { return nil }
+            return "target: \(target)\naction: \(action)"
+        }
         return true
     }
 

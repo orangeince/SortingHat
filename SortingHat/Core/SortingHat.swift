@@ -34,6 +34,17 @@ public enum SortingHat {
         }
     }
     
+    public static func register(url: URL, with handler: @escaping URLHandler) {
+        urlMap.register(url: url, with: handler)
+    }
+    
+    public static func handle(url: URL) -> Any? {
+        guard let (handler, params) = urlMap.matchHandler(for: url) else {
+            return nil
+        }
+        return handler(params)
+    }
+    
     public static func show(targetUrl: URL, from: UIViewController? = nil) {
         guard let (node, matchedParams) = urlMap.matchNode(for: targetUrl),
             let viewController = node.constructViewController(targetUrl.queryItems.weakMerging(matchedParams))
@@ -45,3 +56,4 @@ public enum SortingHat {
         }
     }
 }
+public typealias URLHandler = ([String: Any]) -> Any?

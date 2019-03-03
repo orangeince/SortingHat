@@ -23,7 +23,7 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -41,6 +41,12 @@ class ViewController: UITableViewController {
             SortingHat.show(targetUrl: URL(string: "x://list/SortingHat.list1")!, from: self)
         case 2:
             SortingHat.show(targetUrl: URL(string: "x://list/SortingHat.list2/100")!, from: self)
+        case 3:
+            let actionUrl = URL(string: "x://handler/storyTarget/commentAction")!
+            let actionResult = (SortingHat.handle(url: actionUrl) as? String) ?? "Action handler parse error!"
+            let alert = UIAlertController(title: "URLHandler", message: actionResult, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
         default:
             break
         }
