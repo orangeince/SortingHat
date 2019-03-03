@@ -42,7 +42,7 @@ class ViewController: UITableViewController {
         case 2:
             SortingHat.show(targetUrl: "x://list/SortingHat.list2/100", from: self)
         case 3:
-            let actionUrl = "x://handler/storyTarget/commentAction"
+            let actionUrl = "x://handler/storyTarget/commentAction?content=Hello,SortingHat"
             let actionResult = (SortingHat.handle(url: actionUrl) as? String) ?? "Action handler parse error!"
             let alert = UIAlertController(title: "URLHandler", message: actionResult, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))

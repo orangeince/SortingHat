@@ -37,8 +37,9 @@ SortingHat.register(node: RouteNode<DetailViewController>())
 SortingHat.register(url: "x://handler/:target/:action") { (params) -> String? in
     guard let target = params["target"] as? String,
         let action = params["action"] as? String
+        let content = params["content"] as? String
         else { return nil }
-    return "target: \(target)\naction: \(action)"
+    return "target: \(target)\naction: \(action)\ncontent:\(content)"
 }
 ```
 3. 自动在`模块中枢`增开路由模块，以下代码可配合`Sourcery`自动生成的
@@ -65,6 +66,9 @@ SortingHat.show(targetUrl: "x://detail?title=SortingHat.detail", from: self)
 
 // 内部Target调用方式
 SortingHat.show(target: ModuleCenter.Demo.list(title: "SortingHat.list", id: "BJ2019"), from: self)
+
+// Handler for url
+SortingHat.handle(url: "x://handler/storyTarget/commentAction?content=Hello,SortingHat")
 ```
 
 ## RoadMap

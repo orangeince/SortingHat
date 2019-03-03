@@ -23,9 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SortingHat.register(node: RouteNode<ListViewController>())
         SortingHat.register(url: "x://handler/:target/:action") { (params) -> String? in
             guard let target = params["target"] as? String,
-                let action = params["action"] as? String
+                let action = params["action"] as? String,
+                let content = params["content"] as? String
                 else { return nil }
-            return "target: \(target)\naction: \(action)"
+            return "target: \(target)\naction: \(action)\ncontent: \(content)"
         }
         return true
     }
