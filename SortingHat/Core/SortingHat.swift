@@ -34,20 +34,31 @@ public enum SortingHat {
         }
     }
     
-    public static func register(url: URL, with handler: @escaping URLHandler) {
+    @discardableResult
+    public static func register(url: URLConvertible, with handler: @escaping URLHandler) -> Bool {
+        guard let url = try? url.asURL() else { return false }
         urlMap.register(url: url, with: handler)
+        return true
     }
     
-    public static func handle(url: URL) -> Any? {
-        guard let (handler, params) = urlMap.matchHandler(for: url) else {
+    public static func canHandle(url: URLConvertible) -> Bool {
+        guard let url = try? url.asURL() else { return false }
+        return urlMap.matchHandler(for: url) != nil
+    }
+    
+    @discardableResult
+    public static func handle(url: URLConvertible) -> Any? {
+        guard let url = try? url.asURL(),
+            let (handler, params) = urlMap.matchHandler(for: url) else {
             return nil
         }
         return handler(params)
     }
     
-    public static func show(targetUrl: URL, from: UIViewController? = nil) {
-        guard let (node, matchedParams) = urlMap.matchNode(for: targetUrl),
-            let viewController = node.constructViewController(targetUrl.queryItems.weakMerging(matchedParams))
+    public static func show(targetUrl: URLConvertible, from: UIViewController? = nil) {
+        guard let url = try? targetUrl.asURL(),
+            let (node, matchedParams) = urlMap.matchNode(for: url),
+            let viewController = node.constructViewController(url.queryItems.weakMerging(matchedParams))
             else { return }
         if let from = from {
             from.navigationController?.pushViewController(viewController, animated: true)

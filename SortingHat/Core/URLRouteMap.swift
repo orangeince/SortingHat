@@ -14,8 +14,10 @@ class URLRouteMap {
     private(set) var handlerTrie = URLTrie<URLHandler>()
     
     func register<T>(_ node: RouteNode<T>) {
-        for url in node.urlPatterns {
-            routerTrie.insert(element: node, paths: URL(string: url)!.completePaths.slice)
+        for pattern in node.urlPatterns {
+            if let url = URL(string: pattern) {
+                routerTrie.register(element: node, with: url)
+            }
         }
     }
     
@@ -24,7 +26,7 @@ class URLRouteMap {
     }
     
     func register(url: URL, with handler: @escaping URLHandler) {
-        handlerTrie.insert(element: handler, paths: url.completePaths.slice)
+        handlerTrie.register(element: handler, with: url)
     }
     
     func matchHandler(for url: URL) -> (URLHandler, [String: Any])? {
