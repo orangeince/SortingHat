@@ -16,14 +16,15 @@
 ```swift
 extension DetailViewController: URLRoutable {
     static var urlPattern: String {
-        return "x://detail"
+        return "x://detail/:id"
     }
     struct Paramters: ParametersDecodable {
-        let title: String
+        // This is a type wrapper like Box<Int>: Decodable
+        let id: ValueType.Int
     }
     static func constructViewController(params: Paramters) -> UIViewController? {
         let vc = DetailViewController()
-        vc.title = params.title
+        vc.title = String(params.id.value)
         return vc
     }
 }
