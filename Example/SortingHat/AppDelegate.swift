@@ -17,15 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        SortingHat.register(node: RouteNode<DetailViewController>())
-        SortingHat.register(node: RouteNode<ListViewController>())
-        SortingHat.register(url: "x://handler/:target/:action") { (params) -> String? in
-            guard let target = params["target"] as? String,
-                let action = params["action"] as? String,
-                let content = params["content"] as? String
-                else { return nil }
-            return "target: \(target)\naction: \(action)\ncontent: \(content)"
-        }
         return true
     }
 

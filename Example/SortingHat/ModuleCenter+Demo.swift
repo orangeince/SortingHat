@@ -31,22 +31,26 @@ extension ModuleCenter.Demo: RouteTargetType {
 
 extension DetailViewController: URLRoutable {
     static var urlPattern: String {
-        return "x://detail/:title"
+        return "/detail/:title"
     }
     struct Paramters: ParametersDecodable {
-        let title: String
-        let id: ValueType.Int
+        let title: ValueType.String
+        let id: ValueType.Int?
     }
     static func constructViewController(params: Paramters) -> UIViewController? {
         let vc = DetailViewController()
-        vc.title = params.title + "-id:\(params.id.value)"
+        var title = params.title.value
+        if let id = params.id {
+            title += "-id:\(id.value)"
+        }
+        vc.title = title
         return vc
     }
 }
 
 extension ListViewController: MultiportURLRoutable {
     static var urlPatterns: [String] {
-        return ["x://list/:title/:id", "x://list/:title",]
+        return ["/list/:title/:id", "/list/:title",]
     }
     enum Paramters: RouteParametersType {
         case list1(title: String)
