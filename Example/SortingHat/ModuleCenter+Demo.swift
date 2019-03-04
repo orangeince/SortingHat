@@ -35,10 +35,11 @@ extension DetailViewController: URLRoutable {
     }
     struct Paramters: ParametersDecodable {
         let title: String
+        let id: ValueType.Int
     }
     static func constructViewController(params: Paramters) -> UIViewController? {
         let vc = DetailViewController()
-        vc.title = params.title
+        vc.title = params.title + "-id:\(params.id.value)"
         return vc
     }
 }

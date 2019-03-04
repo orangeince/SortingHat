@@ -43,7 +43,8 @@ extension ViewController {
     func generateDemoData() -> [CellAction] {
         return [
             CellAction(title: "Internal invoke", action: { vc in
-                SortingHat.show(target: ModuleCenter.Demo.detail(title: "Sorting.detail"), from: vc)
+                SortingHat.show(targetUrl: "x://detail/SortingHat?id=89", from: vc)
+                //SortingHat.show(target: ModuleCenter.Demo.detail(title: "Sorting.detail"), from: vc)
             }),
             CellAction(title: "URL invoke with one parameter", action: { vc in
                 SortingHat.show(targetUrl: "x://list/SortingHat.list1", from: vc)
