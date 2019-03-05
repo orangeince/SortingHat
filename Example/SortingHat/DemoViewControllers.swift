@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SortingHat
 
 class ListViewController: UIViewController {
     override func viewDidLoad() {
@@ -16,8 +17,16 @@ class ListViewController: UIViewController {
     }
 }
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, RouteMessageSenderType {
+    var messageHandler: RouteMessageHandler?
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        messageHandler?(.single(title ?? "emptyTitle"))
+    }
+    
     override func viewDidLoad() {
         view.backgroundColor = .cyan
     }
 }
+

@@ -57,3 +57,14 @@ public protocol MultiportURLRoutable: Routable {
     static var urlPatterns: [String] { get }
 }
 
+
+public enum RouteMessageType {
+    case single(Any)
+    case dict([String: Any])
+    case none
+}
+public typealias RouteMessageHandler = (RouteMessageType) -> Void
+/// send message to another.
+public protocol RouteMessageSenderType {
+    var messageHandler: RouteMessageHandler? { get set }
+}

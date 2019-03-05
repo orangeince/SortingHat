@@ -15,8 +15,12 @@ public enum SortingHat {
         return target.node.constructViewController(target.parameters)
     }
     
-    public static func show(target: RouteTargetType, from: UIViewController? = nil) {
+    public static func show(target: RouteTargetType, from: UIViewController? = nil, messageHandler: RouteMessageHandler? = nil) {
         guard let viewController = viewController(for: target) else { return }
+        if let handler = messageHandler,
+            var sender = viewController as? RouteMessageSenderType {
+            sender.messageHandler = handler
+        }
         if let from = from  {
             from.navigationController?.pushViewController(viewController, animated: true)
         } else {

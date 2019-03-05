@@ -76,6 +76,14 @@ extension ViewController {
                         CellAction(name: "Target of [Detail] with parameters",
                                    code: "ModuleCenter.Demo.detail(title: \"DETAIL\")") { vc in
                             SortingHat.show(target: ModuleCenter.Demo.detail(title: "DETAIL"), from: vc)
+                        },
+                        CellAction(name: "Target of [Detail] and return result",
+                                   code: "") { vc in
+                            SortingHat.show(target: ModuleCenter.Demo.detail(title: "DETAIL"), from: vc) { result in
+                                guard case let .single(any) = result,
+                                    let title = any as? String else { return }
+                                        print(title)
+                            }
                         }]),
             
             Section(title: "URL invoke",
@@ -102,8 +110,7 @@ extension ViewController {
                             let alert = UIAlertController(title: "URLHandler", message: actionResult, preferredStyle: .alert)
                             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                             vc.present(alert, animated: true, completion: nil)
-                        }]
-            )
+                        }]),
         ]
     }
 }
