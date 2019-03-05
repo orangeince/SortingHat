@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'SortingHat'
-  s.version          = '0.2.1'
+  s.version          = '0.2.2'
   s.summary          = 'A lightweight and pure swift library for router.'
 
   s.description      = <<-DESC
