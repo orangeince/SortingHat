@@ -70,12 +70,19 @@ SortingHat.show(target: ModuleCenter.Demo.list(title: "SortingHat.list", id: "BJ
 
 // Handler for url
 SortingHat.handle(url: "x://handler/storyTarget/commentAction?content=Hello,SortingHat")
+
+// ViewController之间的传值问题. Handle message between viewControllers.
+SortingHat.show(targetUrl: "x://detail?title=MessageSender", from: self) { message in
+    guard if let content = message as? String else { return print("Not match the message.") }
+    print("Content is \(content)")
+}
 ```
 
 ## RoadMap
-- Register URLs at module load point.
-- Callback for viewcontroller.
-- Auto generate extension code for submodule.
+- [ ] Unit Test.
+- [ ] Register URLs at module load point.
+- [ ] Auto generate extension code for submodule.
+- [ ] Documentation.
 
 ## Installation
 
