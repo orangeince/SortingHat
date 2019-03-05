@@ -51,7 +51,7 @@ extension ModuleCenter {
         case list(title: String, id: String)
     }
 }
-extension ModuleCenter.Demo: RouteNodeType {
+extension ModuleCenter.Demo: RouteTargetType {
     var node: RouteNodeType {
         switch self {
         case .detail: return RouteNode<DetailViewController>()
