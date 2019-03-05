@@ -77,12 +77,11 @@ extension ViewController {
                                    code: "ModuleCenter.Demo.detail(title: \"DETAIL\")") { vc in
                             SortingHat.show(target: ModuleCenter.Demo.detail(title: "DETAIL"), from: vc)
                         },
-                        CellAction(name: "Target of [Detail] and return result",
-                                   code: "") { vc in
-                            SortingHat.show(target: ModuleCenter.Demo.detail(title: "DETAIL"), from: vc) { result in
-                                guard case let .single(any) = result,
-                                    let title = any as? String else { return }
-                                        print(title)
+                        CellAction(name: "Target of [Detail] and handle message form it",
+                                   code: "messageHandler = { message in print(message) }") { vc in
+                            SortingHat.show(target: ModuleCenter.Demo.detail(title: "DETAIL"), from: vc) { message in
+                                guard let title = message as? String else { return print(message ?? "message is nil") }
+                                print(title)
                             }
                         }]),
             

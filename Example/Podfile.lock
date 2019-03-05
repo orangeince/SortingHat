@@ -1,5 +1,5 @@
 PODS:
-  - SortingHat (0.1.0)
+  - SortingHat (0.2.1)
 
 DEPENDENCIES:
   - SortingHat (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  SortingHat: 0ce7278d7998f5778e74d9133bf8fb4ffff9f987
+  SortingHat: 0f7da948b24848be383f6209a28b564cc80a2965
 
 PODFILE CHECKSUM: 694f8409d8a67f31ff50822b808dacdc07bac26d
 
-COCOAPODS: 1.6.0.beta.2
+COCOAPODS: 1.7.0.beta.1

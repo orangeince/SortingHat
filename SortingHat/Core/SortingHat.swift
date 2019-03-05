@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+public typealias URLHandler = ([String: Any]) -> Any?
+
 public enum SortingHat {
     static let urlMap = URLRouteMap.shared
     
@@ -21,13 +23,29 @@ public enum SortingHat {
             var sender = viewController as? RouteMessageSenderType {
             sender.messageHandler = handler
         }
-        if let from = from  {
+        show(viewController, from: from)
+    }
+    
+    public static func show(targetUrl: URLConvertible, from: UIViewController? = nil, messageHandler: RouteMessageHandler? = nil) {
+        guard let url = try? targetUrl.asURL(),
+            let (node, matchedParams) = urlMap.matchNode(for: url),
+            let viewController = node.constructViewController(url.queryItems.weakMerging(matchedParams))
+            else { return }
+        if let handler = messageHandler,
+            var sender = viewController as? RouteMessageSenderType {
+            sender.messageHandler = handler
+        }
+        show(viewController, from: from)
+    }
+    
+    private static func show(_ viewController: UIViewController, from: UIViewController?) {
+        if let from = from {
             from.navigationController?.pushViewController(viewController, animated: true)
         } else {
             UIApplication.shared.keyWindow?.rootViewController = UINavigationController(rootViewController:  viewController)
         }
     }
-    
+
     public static func register<T>(node: RouteNode<T>) {
         urlMap.register(node)
     }
@@ -58,17 +76,4 @@ public enum SortingHat {
         }
         return handler(params.weakMerging(url.queryItems))
     }
-    
-    public static func show(targetUrl: URLConvertible, from: UIViewController? = nil) {
-        guard let url = try? targetUrl.asURL(),
-            let (node, matchedParams) = urlMap.matchNode(for: url),
-            let viewController = node.constructViewController(url.queryItems.weakMerging(matchedParams))
-            else { return }
-        if let from = from {
-            from.navigationController?.pushViewController(viewController, animated: true)
-        } else {
-            UIApplication.shared.keyWindow?.rootViewController = UINavigationController(rootViewController:  viewController)
-        }
-    }
 }
-public typealias URLHandler = ([String: Any]) -> Any?

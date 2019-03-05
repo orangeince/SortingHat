@@ -22,7 +22,7 @@ class DetailViewController: UIViewController, RouteMessageSenderType {
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        messageHandler?(.single(title ?? "emptyTitle"))
+        messageHandler?(title)
     }
     
     override func viewDidLoad() {
