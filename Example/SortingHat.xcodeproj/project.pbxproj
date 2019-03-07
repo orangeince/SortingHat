@@ -15,6 +15,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* URLHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* URLHandlerTests.swift */; };
 		7326D28236E7DD4EA1A66EA6 /* Pods_SortingHat_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B901257145F2DBB6CAC5B84E /* Pods_SortingHat_Tests.framework */; };
+		F5B268F92231560600B5DA9F /* RoutableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B268F82231560600B5DA9F /* RoutableTests.swift */; };
 		F5C94E762229120B00FBEC22 /* DemoViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C94E752229120B00FBEC22 /* DemoViewControllers.swift */; };
 		F5C94E782229166900FBEC22 /* ModuleCenter+Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C94E772229166900FBEC22 /* ModuleCenter+Demo.swift */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,7 @@
 		B901257145F2DBB6CAC5B84E /* Pods_SortingHat_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SortingHat_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF3504F0E250451D86E50690 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		D995F1F25EBEF066C855C6FE /* Pods-SortingHat_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SortingHat_Tests.release.xcconfig"; path = "Target Support Files/Pods-SortingHat_Tests/Pods-SortingHat_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		F5B268F82231560600B5DA9F /* RoutableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutableTests.swift; sourceTree = "<group>"; };
 		F5C94E752229120B00FBEC22 /* DemoViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewControllers.swift; sourceTree = "<group>"; };
 		F5C94E772229166900FBEC22 /* ModuleCenter+Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModuleCenter+Demo.swift"; sourceTree = "<group>"; };
 		F60AFB94F5F117CFA5070EFB /* Pods-SortingHat_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SortingHat_Example.debug.xcconfig"; path = "Target Support Files/Pods-SortingHat_Example/Pods-SortingHat_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACEB1AFB9204008FA782 /* URLHandlerTests.swift */,
+				F5B268F82231560600B5DA9F /* RoutableTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -348,6 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACEC1AFB9204008FA782 /* URLHandlerTests.swift in Sources */,
+				F5B268F92231560600B5DA9F /* RoutableTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
