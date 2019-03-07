@@ -18,11 +18,11 @@ extension DetailViewController: URLRoutable {
     static var urlPattern: String {
         return "x://detail/:id"
     }
-    struct Paramters: ParametersDecodable {
+    struct Parameters: ParametersDecodable {
         // This is a type wrapper like Box<Int>: Decodable
         let id: ValueType.Int
     }
-    static func constructViewController(params: Paramters) -> UIViewController? {
+    static func constructViewController(params: Parameters) -> UIViewController? {
         let vc = DetailViewController()
         vc.title = String(params.id.value)
         return vc

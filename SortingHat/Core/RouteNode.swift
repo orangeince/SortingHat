@@ -15,7 +15,7 @@ public struct RouteNode<T: Routable>: RouteNodeType {
     let urlPatterns: [String]
     public var constructViewController: ([String: Any]) -> UIViewController? {
         return { params in
-            guard let paramters = T.Paramters.init(params: params) else { return nil }
+            guard let paramters = T.Parameters.init(params: params) else { return nil }
             return T.constructViewController(params: paramters)
         }
     }

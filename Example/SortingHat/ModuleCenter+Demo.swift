@@ -33,11 +33,11 @@ extension DetailViewController: URLRoutable {
     static var urlPattern: String {
         return "/detail/:title"
     }
-    struct Paramters: ParametersDecodable {
+    struct Parameters: ParametersDecodable {
         let title: ValueType.String
         let id: ValueType.Int?
     }
-    static func constructViewController(params: Paramters) -> UIViewController? {
+    static func constructViewController(params: Parameters) -> UIViewController? {
         let vc = DetailViewController()
         var title = params.title.value
         if let id = params.id {
@@ -52,7 +52,7 @@ extension ListViewController: MultiportURLRoutable {
     static var urlPatterns: [String] {
         return ["/list/:title/:id", "/list/:title",]
     }
-    enum Paramters: RouteParametersType {
+    enum Parameters: RouteParametersType {
         case list1(title: String)
         case list2(title: String, id: String)
         
@@ -65,7 +65,7 @@ extension ListViewController: MultiportURLRoutable {
             }
         }
     }
-    static func constructViewController(params: Paramters) -> UIViewController? {
+    static func constructViewController(params: Parameters) -> UIViewController? {
         let vc = ListViewController()
         switch params {
         case .list1(let title):

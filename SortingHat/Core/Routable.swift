@@ -9,12 +9,12 @@ import Foundation
 
 /// 路由协议
 public protocol Routable {
-    associatedtype Paramters: RouteParametersType
-    static func constructViewController(params: Paramters) -> UIViewController?
+    associatedtype Parameters: RouteParametersType
+    static func constructViewController(params: Parameters) -> UIViewController?
 }
 
 /// URL路由节点协议
-public protocol URLRoutable: Routable where Paramters: ParametersDecodable {
+public protocol URLRoutable: Routable where Parameters: ParametersDecodable {
     static var urlPattern: String { get }
 }
 
