@@ -17,6 +17,13 @@ public enum SortingHat {
         return target.node.constructViewController(target.parameters)
     }
     
+    public static func viewController(for url: URLConvertible) -> UIViewController? {
+        guard let url = try? url.asURL(),
+            let (node, matchedParams) = urlMap.matchNode(for: url)
+            else { return nil }
+            return node.constructViewController(url.queryItems.weakMerging(matchedParams))
+    }
+    
     public static func show(target: RouteTargetType, from: UIViewController? = nil, messageHandler: RouteMessageHandler? = nil) {
         guard let viewController = viewController(for: target) else { return }
         if let handler = messageHandler,
@@ -27,10 +34,7 @@ public enum SortingHat {
     }
     
     public static func show(targetUrl: URLConvertible, from: UIViewController? = nil, messageHandler: RouteMessageHandler? = nil) {
-        guard let url = try? targetUrl.asURL(),
-            let (node, matchedParams) = urlMap.matchNode(for: url),
-            let viewController = node.constructViewController(url.queryItems.weakMerging(matchedParams))
-            else { return }
+        guard let viewController = viewController(for: targetUrl) else { return }
         if let handler = messageHandler,
             var sender = viewController as? RouteMessageSenderType {
             sender.messageHandler = handler
