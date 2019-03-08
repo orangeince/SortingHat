@@ -25,7 +25,7 @@ extension ParametersDecodable {
     }
 }
 
-public struct NoneParamters: ParametersDecodable {
+public struct NoneParameters: ParametersDecodable {
     public init?(params: [String: Any]) {}
 }
 
