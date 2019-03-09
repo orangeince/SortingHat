@@ -1,6 +1,6 @@
 # SortingHat
 
-[![CI Status](https://img.shields.io/travis/Shao/SortingHat.svg?style=flat)](https://travis-ci.org/Shao/SortingHat)
+[![Build Status](https://travis-ci.com/orangeince/SortingHat.svg?branch=master)](https://travis-ci.com/orangeince/SortingHat)
 [![Version](https://img.shields.io/cocoapods/v/SortingHat.svg?style=flat)](https://cocoapods.org/pods/SortingHat)
 [![License](https://img.shields.io/cocoapods/l/SortingHat.svg?style=flat)](https://cocoapods.org/pods/SortingHat)
 [![Platform](https://img.shields.io/cocoapods/p/SortingHat.svg?style=flat)](https://cocoapods.org/pods/SortingHat)
