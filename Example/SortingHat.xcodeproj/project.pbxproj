@@ -18,6 +18,7 @@
 		F5B268F92231560600B5DA9F /* RoutableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B268F82231560600B5DA9F /* RoutableTests.swift */; };
 		F5C94E762229120B00FBEC22 /* DemoViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C94E752229120B00FBEC22 /* DemoViewControllers.swift */; };
 		F5C94E782229166900FBEC22 /* ModuleCenter+Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C94E772229166900FBEC22 /* ModuleCenter+Demo.swift */; };
+		F5D0A76A223367EB000FC407 /* RouteMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D0A769223367EB000FC407 /* RouteMessageTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		F5B268F82231560600B5DA9F /* RoutableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutableTests.swift; sourceTree = "<group>"; };
 		F5C94E752229120B00FBEC22 /* DemoViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewControllers.swift; sourceTree = "<group>"; };
 		F5C94E772229166900FBEC22 /* ModuleCenter+Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModuleCenter+Demo.swift"; sourceTree = "<group>"; };
+		F5D0A769223367EB000FC407 /* RouteMessageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteMessageTests.swift; sourceTree = "<group>"; };
 		F60AFB94F5F117CFA5070EFB /* Pods-SortingHat_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SortingHat_Example.debug.xcconfig"; path = "Target Support Files/Pods-SortingHat_Example/Pods-SortingHat_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,6 +136,7 @@
 			children = (
 				607FACEB1AFB9204008FA782 /* URLHandlerTests.swift */,
 				F5B268F82231560600B5DA9F /* RoutableTests.swift */,
+				F5D0A769223367EB000FC407 /* RouteMessageTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -352,6 +355,7 @@
 			files = (
 				607FACEC1AFB9204008FA782 /* URLHandlerTests.swift in Sources */,
 				F5B268F92231560600B5DA9F /* RoutableTests.swift in Sources */,
+				F5D0A76A223367EB000FC407 /* RouteMessageTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
