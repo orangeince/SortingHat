@@ -8,8 +8,9 @@
 `SortingHat`是一个纯Swift的路由库。提供普适的`URL`调用方案和枚举传参的内部调用方案。
 
 ## Features
-- 协议声明式的路由规则定义，省心
-- 安全可靠的内部调用方式，参数变更引发的错误会在编译阶段暴露，放心
+- [x] 协议声明式的路由规则定义，省心
+- [x] 安全可靠的内部调用方式，参数变更引发的错误会在编译阶段暴露，放心
+- [ ] 代码自动生成，无需手动注册，贴心
 
 ## Example
 1. 定义路由节点
@@ -43,7 +44,7 @@ SortingHat.register(url: "x://handler/:target/:action") { (params) -> String? in
     return "target: \(target)\naction: \(action)\ncontent:\(content)"
 }
 ```
-3. 自动在`模块中枢`增开路由模块，以下代码可配合`Sourcery`自动生成的
+3. 在`模块中枢`增开路由节点（以下代码可自动生成 *In future*）
 ```swift
 extension ModuleCenter {
     enum Demo {
