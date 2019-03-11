@@ -48,6 +48,7 @@ public enum ValueType {
     public typealias Bool = ParameterValueType<Swift.Bool>
     public typealias String = ParameterValueType<Swift.String>
     public typealias Float = ParameterValueType<Swift.Float>
+    public typealias Double = ParameterValueType<Swift.Double>
     public typealias Int = ParameterValueType<Swift.Int>
     public typealias Int8 = ParameterValueType<Swift.Int8>
     public typealias Int16 = ParameterValueType<Swift.Int16>
