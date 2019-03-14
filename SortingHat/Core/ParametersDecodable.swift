@@ -7,15 +7,20 @@
 
 import Foundation
 
+/// Parameters to construct a route target.
 public protocol RouteParametersType {
     init?(params: [String: Any])
 }
 
+/// Decodable parameters.
 public protocol ParametersDecodable: RouteParametersType, Decodable {
     init?(params: [String: Any])
 }
 
 extension ParametersDecodable {
+    /// Initialized with a dictionary.
+    ///
+    /// This method will convert the dictionary to json, and then decode from json data.
     public init?(params: [String: Any]) {
         let decoder = JSONDecoder()
         guard let data = try? JSONSerialization.data(withJSONObject: params, options: []),
@@ -25,6 +30,7 @@ extension ParametersDecodable {
     }
 }
 
+/// No necessary parameters.
 public struct NoneParameters: ParametersDecodable {
     public init?(params: [String: Any]) {}
 }
