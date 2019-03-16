@@ -35,9 +35,27 @@ public struct NoneParameters: ParametersDecodable {
     public init?(params: [String: Any]) {}
 }
 
-public struct ParameterValueType<T: Decodable>: Decodable {
+/** Value type of parameter.This is just a wapper like Box<Int>.
+ 
+ In order to solve the problem that the parameter type parsed from the URL is always String.
+ 
+ If T is confirmed Decodable, this is confirm Decodable too.
+ 
+ ```
+ let x = ParameterValue<Int>(10)
+ print(x.value) // 10
+ ```
+ 
+ */
+public struct ParameterValue<T> {
     public let value: T
     
+    public init(_ value: T) {
+        self.value = value
+    }
+}
+
+extension ParameterValue: Decodable where T: Decodable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         if let str = try? container.decode(String.self),
@@ -50,21 +68,36 @@ public struct ParameterValueType<T: Decodable>: Decodable {
     }
 }
 
+/// A collection of default value types.Just like a namespace
 public enum ValueType {
-    public typealias Bool = ParameterValueType<Swift.Bool>
-    public typealias String = ParameterValueType<Swift.String>
-    public typealias Float = ParameterValueType<Swift.Float>
-    public typealias Double = ParameterValueType<Swift.Double>
-    public typealias Int = ParameterValueType<Swift.Int>
-    public typealias Int8 = ParameterValueType<Swift.Int8>
-    public typealias Int16 = ParameterValueType<Swift.Int16>
-    public typealias Int32 = ParameterValueType<Swift.Int32>
-    public typealias Int64 = ParameterValueType<Swift.Int64>
-    public typealias UInt = ParameterValueType<Swift.UInt>
-    public typealias UInt8 = ParameterValueType<Swift.UInt8>
-    public typealias UInt16 = ParameterValueType<Swift.UInt16>
-    public typealias UInt32 = ParameterValueType<Swift.UInt32>
-    public typealias UInt64 = ParameterValueType<Swift.UInt64>
+    /// Type of value is String
+    public typealias String = ParameterValue<Swift.String>
+    /// Type of value is Bool, and can be decode from a string type value.
+    public typealias Bool = ParameterValue<Swift.Bool>
+    /// Type of value is Float, and can be decode from a string type value.
+    public typealias Float = ParameterValue<Swift.Float>
+    /// Type of value is Double, and can be decode from a string type value.
+    public typealias Double = ParameterValue<Swift.Double>
+    /// Type of value is Int, and can be decode from a string type value.
+    public typealias Int = ParameterValue<Swift.Int>
+    /// Type of value is Int8, and can be decode from a string type value.
+    public typealias Int8 = ParameterValue<Swift.Int8>
+    /// Type of value is Int16, and can be decode from a string type value.
+    public typealias Int16 = ParameterValue<Swift.Int16>
+    /// Type of value is Int32, and can be decode from a string type value.
+    public typealias Int32 = ParameterValue<Swift.Int32>
+    /// Type of value is Int64, and can be decode from a string type value.
+    public typealias Int64 = ParameterValue<Swift.Int64>
+    /// Type of value is UInt, and can be decode from a string type value.
+    public typealias UInt = ParameterValue<Swift.UInt>
+    /// Type of value is UInt8, and can be decode from a string type value.
+    public typealias UInt8 = ParameterValue<Swift.UInt8>
+    /// Type of value is UInt16, and can be decode from a string type value.
+    public typealias UInt16 = ParameterValue<Swift.UInt16>
+    /// Type of value is UInt32, and can be decode from a string type value.
+    public typealias UInt32 = ParameterValue<Swift.UInt32>
+    /// Type of value is UInt64, and can be decode from a string type value.
+    public typealias UInt64 = ParameterValue<Swift.UInt64>
 }
 
 protocol StringConvertible {
