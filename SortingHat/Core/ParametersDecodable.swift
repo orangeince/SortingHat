@@ -9,19 +9,32 @@ import Foundation
 
 /// Parameters to construct a route target.
 public protocol RouteParametersType {
-    init?(params: [String: Any])
+    init?(_ params: [String: Any])
 }
 
-/// Decodable parameters.
+/** Decodable parameters.
+ 
+ It takes advantage of the convenience of the system default implementation.
+ It will convert the dictionary to json, and then decode from json data.
+ ```
+ struct Parameters: ParametersDecodable {
+    let id: Int
+    let name: String
+ }
+ let params = Parameters(["id": 89, "name": "SortingHat"])
+ print(params.id) // 89
+ print(params.name) // SortingHat
+ ```
+ */
 public protocol ParametersDecodable: RouteParametersType, Decodable {
-    init?(params: [String: Any])
+    init?(_ params: [String: Any])
 }
 
 extension ParametersDecodable {
     /// Initialized with a dictionary.
     ///
     /// This method will convert the dictionary to json, and then decode from json data.
-    public init?(params: [String: Any]) {
+    public init?(_ params: [String: Any]) {
         let decoder = JSONDecoder()
         guard let data = try? JSONSerialization.data(withJSONObject: params, options: []),
             let obj = try? decoder.decode(Self.self, from: data)
@@ -32,7 +45,7 @@ extension ParametersDecodable {
 
 /// No necessary parameters.
 public struct NoneParameters: ParametersDecodable {
-    public init?(params: [String: Any]) {}
+    public init?(_ params: [String: Any]) {}
 }
 
 /** Value type of parameter.This is just a wapper like Box<Int>.
@@ -100,6 +113,7 @@ public enum ValueType {
     public typealias UInt64 = ParameterValue<Swift.UInt64>
 }
 
+/// The value can be convert from a string. Like Int.
 protocol StringConvertible {
     init?(_ description: String)
 }

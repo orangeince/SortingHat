@@ -61,7 +61,7 @@ class RoutableTests: XCTestCase {
                 case customDetail(title: String)
                 case detail
             
-                init?(params: [String : Any]) {
+                init?(_ params: [String : Any]) {
                     if let title = params["title"] as? String {
                         self = .customDetail(title: title)
                     } else {

@@ -32,13 +32,13 @@ class RouteParametersTests: XCTestCase {
         XCTAssert(params.id == 89)
 
         // - Initialize with dict
-        let p2 = Paramsters(params: ["title": "test2", "id": 100])
+        let p2 = Paramsters(["title": "test2", "id": 100])
         XCTAssert(p2 != nil)
         XCTAssert(p2?.title == "test2")
         XCTAssert(p2?.id == 100)
         
         // - Initialize with dict, but type of id not matched, and it should be failed.
-        let p3 = Paramsters(params: ["title": "test3", "id": "200"])
+        let p3 = Paramsters(["title": "test3", "id": "200"])
         XCTAssert(p3 == nil)
     }
     
@@ -109,7 +109,7 @@ class RouteParametersTests: XCTestCase {
             let uint32: ValueType.UInt32
             let uint64: ValueType.UInt64
         }
-        let params = Parameters.init(params: [
+        let params = Parameters([
             "string": "swift",
             "float": 4.2,
             "double": 4.2,
@@ -139,7 +139,7 @@ class RouteParametersTests: XCTestCase {
         XCTAssert(params.uint64.value == 64)
         
         // - String value type of dictionary.
-        let params2 =  Parameters.init(params: [
+        let params2 =  Parameters([
             "string": "swift",
             "float": "4.2",
             "double": "4.2",

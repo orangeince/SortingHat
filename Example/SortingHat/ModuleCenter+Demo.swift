@@ -56,7 +56,7 @@ extension ListViewController: MultiportURLRoutable {
         case list1(title: String)
         case list2(title: String, id: String)
         
-        init?(params: [String : Any]) {
+        init?(_ params: [String : Any]) {
             guard let title = params["title"] as? String else { return nil }
             if let id = params["id"] as? String {
                 self = .list2(title: title, id: id)
