@@ -80,7 +80,7 @@ SortingHat.show(targetUrl: "x://detail?title=MessageSender", from: self) { messa
 ```
 
 ## RoadMap
-- [ ] Unit Test.
+- [x] Unit Test.
 - [ ] Register URLs at module load point.
 - [ ] Auto generate extension code for submodule.
 - [ ] Documentation.
