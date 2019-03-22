@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'SortingHat'
-  s.version          = '0.2.2'
+  s.version          = '0.2.3'
   s.summary          = 'A lightweight and pure swift library for router.'
 
   s.description      = <<-DESC
@@ -17,6 +17,6 @@ Pod::Spec.new do |s|
   s.swift_version = '4.2'
   s.ios.deployment_target = '10.0'
 
-  s.source_files = 'SortingHat/**/*'
+  s.source_files = ['Sources/**/*.swift', "Sources/SortingHat.h"]
   
 end
