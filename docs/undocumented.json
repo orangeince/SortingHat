@@ -1,0 +1,250 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/shao/Projects/OIP/SortingHat/Sources/Core/ParametersDecodable.swift",
+      "line": 12,
+      "symbol": "RouteParametersType.init(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/shao/Projects/OIP/SortingHat/Sources/Core/ParametersDecodable.swift",
+      "line": 30,
+      "symbol": "ParametersDecodable.init(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/shao/Projects/OIP/SortingHat/Sources/Core/ParametersDecodable.swift",
+      "line": 48,
+      "symbol": "NoneParameters.init(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/shao/Projects/OIP/SortingHat/Sources/Core/ParametersDecodable.swift",
+      "line": 64,
+      "symbol": "ParameterValue.value",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/shao/Projects/OIP/SortingHat/Sources/Core/ParametersDecodable.swift",
+      "line": 66,
+      "symbol": "ParameterValue.init(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/shao/Projects/OIP/SortingHat/Sources/Core/Routable.swift",
+      "line": 104,
+      "symbol": "MultiportURLRoutable.urlPatterns",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/shao/Projects/OIP/SortingHat/Sources/Core/RouteMessage.swift",
+      "line": 18,
+      "symbol": "RouteMessageSenderType.messageHandler",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/shao/Projects/OIP/SortingHat/Sources/Core/RouteNode.swift",
+      "line": null,
+      "symbol": "RouteNode",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/shao/Projects/OIP/SortingHat/Sources/Core/RouteNode.swift",
+      "line": null,
+      "symbol": "RouteNode",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/shao/Projects/OIP/SortingHat/Sources/Core/RouteNode.swift",
+      "line": 10,
+      "symbol": "RouteNodeType",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/shao/Projects/OIP/SortingHat/Sources/Core/RouteNode.swift",
+      "line": 11,
+      "symbol": "RouteNodeType.constructViewController",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/shao/Projects/OIP/SortingHat/Sources/Core/RouteNode.swift",
+      "line": 14,
+      "symbol": "RouteNode",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/shao/Projects/OIP/SortingHat/Sources/Core/RouteNode.swift",
+      "line": 16,
+      "symbol": "RouteNode.constructViewController",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/shao/Projects/OIP/SortingHat/Sources/Core/RouteNode.swift",
+      "line": 22,
+      "symbol": "RouteNode.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/shao/Projects/OIP/SortingHat/Sources/Core/RouteNode.swift",
+      "line": 28,
+      "symbol": "RouteNode.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/shao/Projects/OIP/SortingHat/Sources/Core/RouteNode.swift",
+      "line": 32,
+      "symbol": "RouteNode.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/shao/Projects/OIP/SortingHat/Sources/Core/SortingHat+Extensions.swift",
+      "line": 63,
+      "symbol": "URLConvertible",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/shao/Projects/OIP/SortingHat/Sources/Core/SortingHat+Extensions.swift",
+      "line": 64,
+      "symbol": "URLConvertible.asURL()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/shao/Projects/OIP/SortingHat/Sources/Core/SortingHat+Extensions.swift",
+      "line": 67,
+      "symbol": "RouteError",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/shao/Projects/OIP/SortingHat/Sources/Core/SortingHat+Extensions.swift",
+      "line": 68,
+      "symbol": "RouteError.invalidURL",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/shao/Projects/OIP/SortingHat/Sources/Core/SortingHat+Extensions.swift",
+      "line": 72,
+      "symbol": "String.asURL()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/shao/Projects/OIP/SortingHat/Sources/Core/SortingHat+Extensions.swift",
+      "line": 79,
+      "symbol": "URL.asURL()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/shao/Projects/OIP/SortingHat/Sources/Core/SortingHat.swift",
+      "line": 11,
+      "symbol": "URLHandler",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/shao/Projects/OIP/SortingHat/Sources/Core/SortingHat.swift",
+      "line": 13,
+      "symbol": "SortingHat",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/shao/Projects/OIP/SortingHat/Sources/Core/SortingHat.swift",
+      "line": 16,
+      "symbol": "SortingHat.viewController(for:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/shao/Projects/OIP/SortingHat/Sources/Core/SortingHat.swift",
+      "line": 20,
+      "symbol": "SortingHat.viewController(for:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/shao/Projects/OIP/SortingHat/Sources/Core/SortingHat.swift",
+      "line": 27,
+      "symbol": "SortingHat.show(target:from:messageHandler:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/shao/Projects/OIP/SortingHat/Sources/Core/SortingHat.swift",
+      "line": 36,
+      "symbol": "SortingHat.show(targetUrl:from:messageHandler:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/shao/Projects/OIP/SortingHat/Sources/Core/SortingHat.swift",
+      "line": 53,
+      "symbol": "SortingHat.register(node:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/shao/Projects/OIP/SortingHat/Sources/Core/SortingHat.swift",
+      "line": 57,
+      "symbol": "SortingHat.register(nodes:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/shao/Projects/OIP/SortingHat/Sources/Core/SortingHat.swift",
+      "line": 64,
+      "symbol": "SortingHat.register(url:with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/shao/Projects/OIP/SortingHat/Sources/Core/SortingHat.swift",
+      "line": 70,
+      "symbol": "SortingHat.canHandle(url:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/shao/Projects/OIP/SortingHat/Sources/Core/SortingHat.swift",
+      "line": 76,
+      "symbol": "SortingHat.handle(url:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/shao/Projects/OIP/SortingHat/Sources/Core/URLTrie.swift",
+      "line": null,
+      "symbol": "URLTrie",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/shao/Projects/OIP/SortingHat/Sources/ModuleCenter/ParametersParser.swift",
+      "line": 10,
+      "symbol": "ParametersParser",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/shao/Projects/OIP/SortingHat"
+}
