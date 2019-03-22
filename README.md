@@ -14,6 +14,7 @@
 
 ## Example
 1. 定义路由节点
+
 ```swift
 extension DetailViewController: URLRoutable {
     static var urlPattern: String {
@@ -30,7 +31,9 @@ extension DetailViewController: URLRoutable {
     }
 }
 ```
+
 2. 路由注册
+
 ```swift
 // 注册ViewController节点
 SortingHat.register(node: RouteNode<DetailViewController>())
@@ -44,7 +47,9 @@ SortingHat.register(url: "x://handler/:target/:action") { (params) -> String? in
     return "target: \(target)\naction: \(action)\ncontent:\(content)"
 }
 ```
+
 3. 在`模块中枢`增开路由节点（以下代码可自动生成 *In future*）
+
 ```swift
 extension ModuleCenter {
     enum Demo {
@@ -61,7 +66,9 @@ extension ModuleCenter.Demo: RouteTargetType {
     }
 }
 ```
+
 4. 业务场景使用
+
 ```swift
 // URL调用方式
 SortingHat.show(targetUrl: "x://detail?title=SortingHat.detail", from: self)

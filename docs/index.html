@@ -171,84 +171,87 @@
 <h2 id='example' class='heading'>Example</h2>
 
 <ol>
-<li>定义路由节点
-<code>swift
-extension DetailViewController: URLRoutable {
-static var urlPattern: String {
-    return &quot;x://detail/:id&quot;
-}
-struct Parameters: ParametersDecodable {
-    // This is a type wrapper like Box&lt;Int&gt;: Decodable
-    let id: ValueType.Int
-}
-static func constructViewController(params: Parameters) -&gt; UIViewController? {
-    let vc = DetailViewController()
-    vc.title = String(params.id.value)
-    return vc
-}
-}
-</code></li>
-<li>路由注册
-&ldquo;`swift
-// 注册ViewController节点
-SortingHat.register(node: RouteNode<DetailViewController>())</li>
+<li>定义路由节点</li>
 </ol>
-
-<p>// 注册Handler节点
-SortingHat.register(url: <q>x://handler/:target/:action</q>) { (params) -&gt; String? in
-    guard let target = params[<q>target</q>] as? String,
-        let action = params[<q>action</q>] as? String
-        let content = params[<q>content</q>] as? String
-        else { return nil }
-    return <q>target: \(target)\naction: \(action)\ncontent:\(content)</q>
-}</p>
-<pre class="highlight plaintext"><code>3. 在`模块中枢`增开路由节点（以下代码可自动生成 *In future*）
-```swift
-extension ModuleCenter {
-    enum Demo {
-        case detail(title: String)
-        case list(title: String, id: String)
-    }
-}
-extension ModuleCenter.Demo: RouteTargetType {
-    var node: RouteNodeType {
-        switch self {
-        case .detail: return RouteNode&lt;DetailViewController&gt;()
-        case .list: return RouteNode&lt;ListViewController&gt;()
-        }
-    }
-}
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">DetailViewController</span><span class="p">:</span> <span class="kt">URLRoutable</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="k">var</span> <span class="nv">urlPattern</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s">"x://detail/:id"</span>
+    <span class="p">}</span>
+    <span class="kd">struct</span> <span class="kt">Parameters</span><span class="p">:</span> <span class="kt">ParametersDecodable</span> <span class="p">{</span>
+        <span class="c1">// This is a type wrapper like Box&lt;Int&gt;: Decodable</span>
+        <span class="k">let</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">ValueType</span><span class="o">.</span><span class="kt">Int</span>
+    <span class="p">}</span>
+    <span class="kd">static</span> <span class="kd">func</span> <span class="nf">constructViewController</span><span class="p">(</span><span class="nv">params</span><span class="p">:</span> <span class="kt">Parameters</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UIViewController</span><span class="p">?</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">vc</span> <span class="o">=</span> <span class="kt">DetailViewController</span><span class="p">()</span>
+        <span class="n">vc</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="kt">String</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">vc</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
 
 <ol>
-<li>业务场景使用
-&rdquo;`swift
-// URL调用方式
-SortingHat.show(targetUrl: <q>x://detail?title=SortingHat.detail</q>, from: self)</li>
+<li>路由注册</li>
 </ol>
+<pre class="highlight swift"><code><span class="c1">// 注册ViewController节点</span>
+<span class="kt">SortingHat</span><span class="o">.</span><span class="nf">register</span><span class="p">(</span><span class="nv">node</span><span class="p">:</span> <span class="kt">RouteNode</span><span class="o">&lt;</span><span class="kt">DetailViewController</span><span class="o">&gt;</span><span class="p">())</span>
 
-<p>// 内部Target调用方式
-SortingHat.show(target: ModuleCenter.Demo.list(title: <q>SortingHat.list</q>, id: <q>BJ2019</q>), from: self)</p>
+<span class="c1">// 注册Handler节点</span>
+<span class="kt">SortingHat</span><span class="o">.</span><span class="nf">register</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"x://handler/:target/:action"</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">params</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="p">?</span> <span class="k">in</span>
+    <span class="k">guard</span> <span class="k">let</span> <span class="nv">target</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s">"target"</span><span class="p">]</span> <span class="k">as?</span> <span class="kt">String</span><span class="p">,</span>
+        <span class="k">let</span> <span class="nv">action</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s">"action"</span><span class="p">]</span> <span class="k">as?</span> <span class="kt">String</span>
+        <span class="k">let</span> <span class="nv">content</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s">"content"</span><span class="p">]</span> <span class="k">as?</span> <span class="kt">String</span>
+        <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">nil</span> <span class="p">}</span>
+    <span class="k">return</span> <span class="s">"target: </span><span class="se">\(</span><span class="n">target</span><span class="se">)\n</span><span class="s">action: </span><span class="se">\(</span><span class="n">action</span><span class="se">)\n</span><span class="s">content:</span><span class="se">\(</span><span class="n">content</span><span class="se">)</span><span class="s">"</span>
+<span class="p">}</span>
+</code></pre>
 
-<p>// Handler for url
-SortingHat.handle(url: <q>x://handler/storyTarget/commentAction?content=Hello,SortingHat</q>)</p>
+<ol>
+<li>在<code>模块中枢</code>增开路由节点（以下代码可自动生成 <em>In future</em>）</li>
+</ol>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">ModuleCenter</span> <span class="p">{</span>
+    <span class="kd">enum</span> <span class="kt">Demo</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="nf">detail</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span>
+        <span class="k">case</span> <span class="nf">list</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">extension</span> <span class="kt">ModuleCenter</span><span class="o">.</span><span class="kt">Demo</span><span class="p">:</span> <span class="kt">RouteTargetType</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">node</span><span class="p">:</span> <span class="kt">RouteNodeType</span> <span class="p">{</span>
+        <span class="k">switch</span> <span class="k">self</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="o">.</span><span class="nv">detail</span><span class="p">:</span> <span class="k">return</span> <span class="kt">RouteNode</span><span class="o">&lt;</span><span class="kt">DetailViewController</span><span class="o">&gt;</span><span class="p">()</span>
+        <span class="k">case</span> <span class="o">.</span><span class="nv">list</span><span class="p">:</span> <span class="k">return</span> <span class="kt">RouteNode</span><span class="o">&lt;</span><span class="kt">ListViewController</span><span class="o">&gt;</span><span class="p">()</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
 
-<p>// ViewController之间的传值问题. Handle message between viewControllers.
-SortingHat.show(targetUrl: <q>x://detail?title=MessageSender</q>, from: self) { message in
-    guard if let content = message as? String else { return print(<q>Not match the message.</q>) }
-    print(<q>Content is \(content)</q>)
-}</p>
-<pre class="highlight plaintext"><code>
-## RoadMap
-- [x] Unit Test.
-- [ ] Register URLs at module load point.
-- [ ] Auto generate extension code for submodule.
-- [ ] Documentation.
+<ol>
+<li>业务场景使用</li>
+</ol>
+<pre class="highlight swift"><code><span class="c1">// URL调用方式</span>
+<span class="kt">SortingHat</span><span class="o">.</span><span class="nf">show</span><span class="p">(</span><span class="nv">targetUrl</span><span class="p">:</span> <span class="s">"x://detail?title=SortingHat.detail"</span><span class="p">,</span> <span class="nv">from</span><span class="p">:</span> <span class="k">self</span><span class="p">)</span>
 
-## Installation
+<span class="c1">// 内部Target调用方式</span>
+<span class="kt">SortingHat</span><span class="o">.</span><span class="nf">show</span><span class="p">(</span><span class="nv">target</span><span class="p">:</span> <span class="kt">ModuleCenter</span><span class="o">.</span><span class="kt">Demo</span><span class="o">.</span><span class="nf">list</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"SortingHat.list"</span><span class="p">,</span> <span class="nv">id</span><span class="p">:</span> <span class="s">"BJ2019"</span><span class="p">),</span> <span class="nv">from</span><span class="p">:</span> <span class="k">self</span><span class="p">)</span>
 
-```ruby
-pod 'SortingHat', '~&gt; 0.2'
+<span class="c1">// Handler for url</span>
+<span class="kt">SortingHat</span><span class="o">.</span><span class="nf">handle</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"x://handler/storyTarget/commentAction?content=Hello,SortingHat"</span><span class="p">)</span>
+
+<span class="c1">// ViewController之间的传值问题. Handle message between viewControllers.</span>
+<span class="kt">SortingHat</span><span class="o">.</span><span class="nf">show</span><span class="p">(</span><span class="nv">targetUrl</span><span class="p">:</span> <span class="s">"x://detail?title=MessageSender"</span><span class="p">,</span> <span class="nv">from</span><span class="p">:</span> <span class="k">self</span><span class="p">)</span> <span class="p">{</span> <span class="n">message</span> <span class="k">in</span>
+    <span class="k">guard</span> <span class="k">if</span> <span class="k">let</span> <span class="nv">content</span> <span class="o">=</span> <span class="n">message</span> <span class="k">as?</span> <span class="kt">String</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="nf">print</span><span class="p">(</span><span class="s">"Not match the message."</span><span class="p">)</span> <span class="p">}</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"Content is </span><span class="se">\(</span><span class="n">content</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+<h2 id='roadmap' class='heading'>RoadMap</h2>
+
+<ul>
+<li>[x] Unit Test.</li>
+<li>[ ] Register URLs at module load point.</li>
+<li>[ ] Auto generate extension code for submodule.</li>
+<li>[ ] Documentation.</li>
+</ul>
+<h2 id='installation' class='heading'>Installation</h2>
+<pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'SortingHat'</span><span class="p">,</span> <span class="s1">'~&gt; 0.2'</span>
 </code></pre>
 <h2 id='license' class='heading'>License</h2>
 
