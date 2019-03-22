@@ -1,5 +1,5 @@
 import XCTest
-import SortingHat
+@testable import SortingHat
 
 class URLHandlerTests: XCTestCase {
     

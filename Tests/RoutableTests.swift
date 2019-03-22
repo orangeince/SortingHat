@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import SortingHat
+@testable import SortingHat
 
 class RoutableTests: XCTestCase {
     

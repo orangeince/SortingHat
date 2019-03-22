@@ -5,7 +5,7 @@
 //  Created by 少 on 2019/3/1.
 //
 
-import Foundation
+import UIKit
 
 /// 路由协议
 public protocol Routable {
