@@ -8,11 +8,13 @@
 `SortingHat`是一个纯Swift的路由库。提供普适的`URL`调用方案和枚举传参的内部调用方案。
 
 ## Features
+
 - [x] 协议声明式的路由规则定义，省心
 - [x] 安全可靠的内部调用方式，参数变更引发的错误会在编译阶段暴露，放心
 - [ ] 代码自动生成，无需手动注册，贴心
 
 ## Example
+
 1. 定义路由节点
 
 ```swift
@@ -32,7 +34,7 @@ extension DetailViewController: URLRoutable {
 }
 ```
 
-2. 路由注册
+1. 路由注册
 
 ```swift
 // 注册ViewController节点
@@ -48,7 +50,7 @@ SortingHat.register(url: "x://handler/:target/:action") { (params) -> String? in
 }
 ```
 
-3. 在`模块中枢`增开路由节点（以下代码可自动生成 *In future*）
+1. 在`模块中枢`增开路由节点（以下代码可自动生成 *In future*）
 
 ```swift
 extension ModuleCenter {
@@ -67,7 +69,7 @@ extension ModuleCenter.Demo: RouteTargetType {
 }
 ```
 
-4. 业务场景使用
+1. 业务场景使用
 
 ```swift
 // URL调用方式
@@ -87,10 +89,11 @@ SortingHat.show(targetUrl: "x://detail?title=MessageSender", from: self) { messa
 ```
 
 ## RoadMap
+
 - [x] Unit Test.
 - [ ] Register URLs at module load point.
 - [ ] Auto generate extension code for submodule.
-- [ ] Documentation.
+- [x] [Documentation](https://orangeince.github.io/SortingHat/).
 
 ## Installation
 
