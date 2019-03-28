@@ -23,6 +23,7 @@
 		F584F2AE2244D6680012FC88 /* RouteParametersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F584F2AA2244D6680012FC88 /* RouteParametersTests.swift */; };
 		F584F2AF2244D6680012FC88 /* URLHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F584F2AB2244D6680012FC88 /* URLHandlerTests.swift */; };
 		F584F2B02244D6680012FC88 /* RoutableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F584F2AC2244D6680012FC88 /* RoutableTests.swift */; };
+		F5E3EFA6224C62F7003588F4 /* URLTrieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E3EFA5224C62F7003588F4 /* URLTrieTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		F584F2AA2244D6680012FC88 /* RouteParametersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteParametersTests.swift; sourceTree = "<group>"; };
 		F584F2AB2244D6680012FC88 /* URLHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLHandlerTests.swift; sourceTree = "<group>"; };
 		F584F2AC2244D6680012FC88 /* RoutableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutableTests.swift; sourceTree = "<group>"; };
+		F5E3EFA5224C62F7003588F4 /* URLTrieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLTrieTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				F584F2AA2244D6680012FC88 /* RouteParametersTests.swift */,
 				F584F2AB2244D6680012FC88 /* URLHandlerTests.swift */,
 				F584F25B2244CE020012FC88 /* Info.plist */,
+				F5E3EFA5224C62F7003588F4 /* URLTrieTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				F584F2AF2244D6680012FC88 /* URLHandlerTests.swift in Sources */,
 				F584F2AE2244D6680012FC88 /* RouteParametersTests.swift in Sources */,
 				F584F2AD2244D6680012FC88 /* RouteMessageTests.swift in Sources */,
+				F5E3EFA6224C62F7003588F4 /* URLTrieTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

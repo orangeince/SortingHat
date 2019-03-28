@@ -67,7 +67,9 @@ extension URLTrie {
     var urlPatterns: [String] {
         var result: [String] = element == nil ? [] : [""]
         for (k, v) in children {
-            result += v.urlPatterns.map{ k + "/" + $0 }
+            result += v.urlPatterns.map {
+                $0.isEmpty ? k : k + "/" + $0
+            }
         }
         return result
     }
