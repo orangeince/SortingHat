@@ -20,7 +20,7 @@
 ```swift
 extension DetailViewController: URLRoutable {
     static var urlPattern: String {
-        return "x://detail/:id"
+        return "/detail/:id"
     }
     struct Parameters: ParametersDecodable {
         // This is a type wrapper like Box<Int>: Decodable
@@ -41,7 +41,7 @@ extension DetailViewController: URLRoutable {
 SortingHat.register(node: RouteNode<DetailViewController>())
 
 // 注册Handler节点
-SortingHat.register(url: "x://handler/:target/:action") { (params) -> String? in
+SortingHat.register(url: "/handler/:target/:action") { (params) -> String? in
     guard let target = params["target"] as? String,
         let action = params["action"] as? String
         let content = params["content"] as? String
@@ -73,16 +73,16 @@ extension ModuleCenter.Demo: RouteTargetType {
 
 ```swift
 // URL调用方式
-SortingHat.show(targetUrl: "x://detail?title=SortingHat.detail", from: self)
+SortingHat.show(targetUrl: "/detail?title=SortingHat.detail", from: self)
 
 // 内部Target调用方式
 SortingHat.show(target: ModuleCenter.Demo.list(title: "SortingHat.list", id: "BJ2019"), from: self)
 
 // Handler for url
-SortingHat.handle(url: "x://handler/storyTarget/commentAction?content=Hello,SortingHat")
+SortingHat.handle(url: "/handler/storyTarget/commentAction?content=Hello,SortingHat")
 
 // ViewController之间的传值问题. Handle message between viewControllers.
-SortingHat.show(targetUrl: "x://detail?title=MessageSender", from: self) { message in
+SortingHat.show(targetUrl: "/detail?title=MessageSender", from: self) { message in
     guard if let content = message as? String else { return print("Not match the message.") }
     print("Content is \(content)")
 }
