@@ -22,7 +22,7 @@
         <a class="header-link" href="index.html">
           SortingHat Docs
         </a>
-         (53% documented)
+         (69% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -175,7 +175,7 @@
 </ol>
 <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">DetailViewController</span><span class="p">:</span> <span class="kt">URLRoutable</span> <span class="p">{</span>
     <span class="kd">static</span> <span class="k">var</span> <span class="nv">urlPattern</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="s">"x://detail/:id"</span>
+        <span class="k">return</span> <span class="s">"/detail/:id"</span>
     <span class="p">}</span>
     <span class="kd">struct</span> <span class="kt">Parameters</span><span class="p">:</span> <span class="kt">ParametersDecodable</span> <span class="p">{</span>
         <span class="c1">// This is a type wrapper like Box&lt;Int&gt;: Decodable</span>
@@ -196,7 +196,7 @@
 <span class="kt">SortingHat</span><span class="o">.</span><span class="nf">register</span><span class="p">(</span><span class="nv">node</span><span class="p">:</span> <span class="kt">RouteNode</span><span class="o">&lt;</span><span class="kt">DetailViewController</span><span class="o">&gt;</span><span class="p">())</span>
 
 <span class="c1">// 注册Handler节点</span>
-<span class="kt">SortingHat</span><span class="o">.</span><span class="nf">register</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"x://handler/:target/:action"</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">params</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="p">?</span> <span class="k">in</span>
+<span class="kt">SortingHat</span><span class="o">.</span><span class="nf">register</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"/handler/:target/:action"</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">params</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="p">?</span> <span class="k">in</span>
     <span class="k">guard</span> <span class="k">let</span> <span class="nv">target</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s">"target"</span><span class="p">]</span> <span class="k">as?</span> <span class="kt">String</span><span class="p">,</span>
         <span class="k">let</span> <span class="nv">action</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s">"action"</span><span class="p">]</span> <span class="k">as?</span> <span class="kt">String</span>
         <span class="k">let</span> <span class="nv">content</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s">"content"</span><span class="p">]</span> <span class="k">as?</span> <span class="kt">String</span>
@@ -228,16 +228,16 @@
 <li>业务场景使用</li>
 </ol>
 <pre class="highlight swift"><code><span class="c1">// URL调用方式</span>
-<span class="kt">SortingHat</span><span class="o">.</span><span class="nf">show</span><span class="p">(</span><span class="nv">targetUrl</span><span class="p">:</span> <span class="s">"x://detail?title=SortingHat.detail"</span><span class="p">,</span> <span class="nv">from</span><span class="p">:</span> <span class="k">self</span><span class="p">)</span>
+<span class="kt">SortingHat</span><span class="o">.</span><span class="nf">show</span><span class="p">(</span><span class="nv">targetUrl</span><span class="p">:</span> <span class="s">"/detail?title=SortingHat.detail"</span><span class="p">,</span> <span class="nv">from</span><span class="p">:</span> <span class="k">self</span><span class="p">)</span>
 
 <span class="c1">// 内部Target调用方式</span>
 <span class="kt">SortingHat</span><span class="o">.</span><span class="nf">show</span><span class="p">(</span><span class="nv">target</span><span class="p">:</span> <span class="kt">ModuleCenter</span><span class="o">.</span><span class="kt">Demo</span><span class="o">.</span><span class="nf">list</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"SortingHat.list"</span><span class="p">,</span> <span class="nv">id</span><span class="p">:</span> <span class="s">"BJ2019"</span><span class="p">),</span> <span class="nv">from</span><span class="p">:</span> <span class="k">self</span><span class="p">)</span>
 
 <span class="c1">// Handler for url</span>
-<span class="kt">SortingHat</span><span class="o">.</span><span class="nf">handle</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"x://handler/storyTarget/commentAction?content=Hello,SortingHat"</span><span class="p">)</span>
+<span class="kt">SortingHat</span><span class="o">.</span><span class="nf">handle</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"/handler/storyTarget/commentAction?content=Hello,SortingHat"</span><span class="p">)</span>
 
 <span class="c1">// ViewController之间的传值问题. Handle message between viewControllers.</span>
-<span class="kt">SortingHat</span><span class="o">.</span><span class="nf">show</span><span class="p">(</span><span class="nv">targetUrl</span><span class="p">:</span> <span class="s">"x://detail?title=MessageSender"</span><span class="p">,</span> <span class="nv">from</span><span class="p">:</span> <span class="k">self</span><span class="p">)</span> <span class="p">{</span> <span class="n">message</span> <span class="k">in</span>
+<span class="kt">SortingHat</span><span class="o">.</span><span class="nf">show</span><span class="p">(</span><span class="nv">targetUrl</span><span class="p">:</span> <span class="s">"/detail?title=MessageSender"</span><span class="p">,</span> <span class="nv">from</span><span class="p">:</span> <span class="k">self</span><span class="p">)</span> <span class="p">{</span> <span class="n">message</span> <span class="k">in</span>
     <span class="k">guard</span> <span class="k">if</span> <span class="k">let</span> <span class="nv">content</span> <span class="o">=</span> <span class="n">message</span> <span class="k">as?</span> <span class="kt">String</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="nf">print</span><span class="p">(</span><span class="s">"Not match the message."</span><span class="p">)</span> <span class="p">}</span>
     <span class="nf">print</span><span class="p">(</span><span class="s">"Content is </span><span class="se">\(</span><span class="n">content</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
 <span class="p">}</span>
@@ -248,7 +248,7 @@
 <li>[x] Unit Test.</li>
 <li>[ ] Register URLs at module load point.</li>
 <li>[ ] Auto generate extension code for submodule.</li>
-<li>[ ] Documentation.</li>
+<li>[x] <a href="https://orangeince.github.io/SortingHat/">Documentation</a>.</li>
 </ul>
 <h2 id='installation' class='heading'>Installation</h2>
 <pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'SortingHat'</span><span class="p">,</span> <span class="s1">'~&gt; 0.2'</span>
@@ -264,7 +264,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://github.com/orangeince" target="_blank" rel="external">Shao</a>. All rights reserved. (Last updated: 2019-03-22)</p>
+      <p>&copy; 2019 <a class="link" href="https://github.com/orangeince" target="_blank" rel="external">Shao</a>. All rights reserved. (Last updated: 2019-04-15)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
