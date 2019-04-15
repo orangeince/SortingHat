@@ -34,6 +34,7 @@ extension URL {
         return paths
     }
     
+    /// Parse the queryItems from url string. eg. /test/?title=sortinghat&id=1
     var queryItems: [String: Any] {
         guard let components = URLComponents(url: self, resolvingAgainstBaseURL: true),
             let queryItems = components.queryItems else {
@@ -49,22 +50,28 @@ extension URL {
 }
 
 extension Array {
+    /// Convert Array to ArraySlice.
     var slice: ArraySlice<Element> {
         return ArraySlice(self)
     }
 }
 
 extension ArraySlice {
+    /// Decompose the first element from array. [1,2,3] -> (1, [2, 3])
     var decomposed: (Element, ArraySlice<Element>)? {
         return isEmpty ? nil : (self[startIndex], self.dropFirst())
     }
 }
 
+/// Which can be convert to a URL
 public protocol URLConvertible {
+    /// Convert to URL.
     func asURL() throws -> URL
 }
 
+/// Route related errors.
 public enum RouteError: Error {
+    /// URL is invalied.
     case invalidURL
 }
 
