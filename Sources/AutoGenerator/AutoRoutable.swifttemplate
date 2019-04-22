@@ -1,0 +1,53 @@
+<%# Generate RouteRuleType For ModuleCenter -%>
+<%
+func caseLabel(for type: Type) -> String {
+    let label = type.name
+        .replacingOccurrences(of: "ViewController", with: "")
+        .replacingOccurrences(of: ".", with: "_")
+    guard !label.isEmpty else { return type.name }
+    return "\(String(label.first!).lowercased())\(String(label.dropFirst()))"
+}
+func caseParameters(for type: Type) -> String {
+    guard let paramsType = type.containedType["Parameters"] else { return "" }
+    let paramsStr = paramsType.instanceVariables.map{ "\($0.name): \($0.typeName)" }.joined(separator: ", ")
+    if paramsStr.isEmpty {
+        return ""
+    } else {
+        return "(\(paramsStr))"
+    }
+}
+-%>
+
+<%_ let matchedTypes = (types.all.filter({$0.implements["URLRoutable"] != nil})) -%>
+// <%= matchedTypes.count %>
+extension ModuleCenter {
+    enum Demo {
+        <%_ for type in matchedTypes { -%>
+        case <%= caseLabel(for: type) %><%= caseParameters(for: type) %>
+        <%_ } -%>
+    }
+}
+
+extension ModuleCenter.Demo: RouteTargetType {
+    var node: RouteNodeType {
+        switch self {
+        <%_ for type in matchedTypes { -%>
+        case .<%= caseLabel(for: type) %>: return RouteNode<<%= type.name %>>()
+        <%_ } -%>
+        }
+    }
+
+    var parameters: [String: Any] {
+        return ParametersParser.parse(enumType: self)
+    }
+}
+
+extension ModuleCenter.Demo: RouteNodeCollection {
+    static var nodes: [RouteNodeType] {
+        return [
+            <%_ for type in matchedTypes { -%>
+            RouteNode<<%= type.name %>>(),
+            <%_ } -%>
+        ]
+    }
+}
